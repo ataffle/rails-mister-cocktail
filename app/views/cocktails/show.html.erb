@@ -2,7 +2,13 @@
   <h1><%= @cocktail.name %></h1>
   <% if @cocktail.photo.present? %>
     <%= cl_image_tag @cocktail.photo, height: 200, width: 200, crop: :fill %> <br>
+  <% else %>
+    <%= simple_form_for(@cocktail) do |f| %>
+      <%= f.input :photo, label: "Add a picture" %>
+      <%= f.input :photo_cache, as: :hidden %>
+    <% end %>
   <% end %>
+
   <% if @cocktail.doses.blank? %>
     <%= link_to "Add your first dose", new_cocktail_dose_path(@cocktail) %> <br>
   <% else %>
@@ -16,6 +22,7 @@
       <% end %>
     </ul>
     <%= link_to "Add another dose", new_cocktail_dose_path(@cocktail) %> <br>
+
   <% end %>
   <%= link_to "Back to list", cocktails_path %>
 </div>
