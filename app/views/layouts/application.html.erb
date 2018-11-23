@@ -18,7 +18,9 @@
       <% end %>
       <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
     </div>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag "application" %>
