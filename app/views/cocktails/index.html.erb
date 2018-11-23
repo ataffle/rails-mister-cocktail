@@ -9,9 +9,16 @@
   <ul id="cocktail-list">
     <% @cocktails.each do |cocktail| %>
     <li>
-      <%= image_tag "cocktail_placeholder.jpeg", height: 50, width: 50 %> <br>
+      <% if cocktail.photo.present? %>
+        <%= cl_image_tag cocktail.photo, height: 200, width: 200, crop: :fill %> <br>
+      <% else %>
+        <%= image_tag "cocktail_placeholder.jpg", height: 200, width: 200 %>
+      <% end %>
       <%= link_to cocktail.name, cocktail_path(cocktail) %> <br>
     </li> <br>
+
     <% end %>
   </ul>
 </div>
+
+

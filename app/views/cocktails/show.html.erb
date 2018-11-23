@@ -3,7 +3,7 @@
   <% if @cocktail.photo.present? %>
     <%= cl_image_tag @cocktail.photo, height: 200, width: 200, crop: :fill %> <br>
   <% else %>
-    <%= image_tag('cocktail_placeholder.jpeg')   %>
+    <%= image_tag('cocktail_placeholder.jpg')   %>
   <% end %>
 
   <% if @cocktail.doses.blank? %>
