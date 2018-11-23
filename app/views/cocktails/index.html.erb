@@ -8,7 +8,10 @@
 <div class="container">
   <ul id="cocktail-list">
     <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li> <br>
+    <li>
+      <%= image_tag('cocktail_placeholder.jpeg', height: 50, width: 50)   %> <br>
+      <%= link_to cocktail.name, cocktail_path(cocktail) %> <br>
+    </li> <br>
     <% end %>
   </ul>
 </div>

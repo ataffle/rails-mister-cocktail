@@ -3,10 +3,7 @@
   <% if @cocktail.photo.present? %>
     <%= cl_image_tag @cocktail.photo, height: 200, width: 200, crop: :fill %> <br>
   <% else %>
-    <%= simple_form_for(@cocktail) do |f| %>
-      <%= f.input :photo, label: "Add a picture" %>
-      <%= f.input :photo_cache, as: :hidden %>
-    <% end %>
+    <%= image_tag('cocktail_placeholder.jpeg')   %>
   <% end %>
 
   <% if @cocktail.doses.blank? %>
@@ -26,3 +23,6 @@
   <% end %>
   <%= link_to "Back to list", cocktails_path %>
 </div>
+
+
+https://i0.wp.com/cheechsown.com/wp-content/uploads/2017/05/cocktail-placeholder-1.jpg?ssl=1
