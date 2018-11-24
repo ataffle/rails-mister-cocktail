@@ -1,25 +1,26 @@
-<div class="container">
+<div class="container-show">
   <h1><%= @cocktail.name %></h1>
   <% if @cocktail.photo.present? %>
     <%= cl_image_tag @cocktail.photo, height: 200, width: 200, crop: :fill %> <br>
   <% else %>
-    <%= image_tag('cocktail_placeholder.jpg')   %>
+    <%= cl_image_tag("ash-edmonds-491883-unsplash.jpg", height: 200, width: 200, crop: :fill) %>
   <% end %>
 
   <% if @cocktail.doses.blank? %>
-    <%= link_to "Add your first dose", new_cocktail_dose_path(@cocktail) %> <br>
+    <%= link_to "Add your first dose", new_cocktail_dose_path(@cocktail), class: "btn-white-sm" %>
   <% else %>
      <ul>
       <% @cocktail.doses.each do |dose| %>
        <li>
-        <%= dose.description %> | <%= dose.ingredient.name %> <br>
+        <%= dose.description %> - <%= dose.ingredient.name %> - <i class="fas fa-trash-alt"></i>
         <%= link_to "Delete dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }  %> <br>
         <p></p>
         </li>
       <% end %>
     </ul>
-    <%= link_to "Add another dose", new_cocktail_dose_path(@cocktail) %> <br>
-
+    <div class="add-dose">
+      <%= link_to "Add another dose", new_cocktail_dose_path(@cocktail), class: "btn-white-sm" %>
+    </div>
   <% end %>
   <%= link_to "Back to list", cocktails_path %>
 </div>

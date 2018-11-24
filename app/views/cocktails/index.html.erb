@@ -1,24 +1,42 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1436018626274-89acd1d6ec9d?ixlib=rb-0.3.5&s=0baf60ba213c0c507b085112b60ea8c5&auto=format&fit=crop&w=1267&q=80');">
   <div class="banner-content">
     <h1>Michel's cocktails</h1>
     <p>Merci qui ?</p>
-    <a href="#cocktail-list" class="btn btn-primary btn-lg">View cocktails</a>
+    <a href="#cocktail-list" class="btn-orange-lg">View cocktails</a>
   </div>
 </div>
 <div class="container">
-  <ul id="cocktail-list">
+  <div class="row" id="cocktail-list">
     <% @cocktails.each do |cocktail| %>
-    <li>
-      <% if cocktail.photo.present? %>
-        <%= cl_image_tag cocktail.photo, height: 200, width: 200, crop: :fill %> <br>
-      <% else %>
-        <%= image_tag "cocktail_placeholder.jpg", height: 200, width: 200 %>
-      <% end %>
-      <%= link_to cocktail.name, cocktail_path(cocktail) %> <br>
-    </li> <br>
+      <div class="col-xs-12 col-sm-4">
+         <% if cocktail.photo.present? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2><%= cocktail.name %></h2>
+              <p><%= link_to "More details", cocktail_path(cocktail) %></p>
+            </div>
+          </div>
+        <% else %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path("ash-edmonds-491883-unsplash.jpg", height: 200, width: 200, crop: :fill) %>');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2><%= cocktail.name %></h2>
+              <p><%= link_to "More details", cocktail_path(cocktail) %></p>
+            </div>
+          </div>
+        <% end %>
 
+
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
+
+
+
+
+
+
 
 

@@ -1,0 +1,15 @@
+<% if @cocktail.photo.present? %>
+    <%= cl_image_tag @cocktail.photo, height: 200, width: 200, crop: :fill %> <br>
+  <% else %>
+    <%= image_tag('cocktail_placeholder.jpg')   %>
+<% end %>
+
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Le Wagon Shanghai</h2>
+    <p>Very cool city, the best</p>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+</div>

@@ -1,0 +1,65 @@
+.btn-white {
+  text-decoration: none;
+  color: $blue-michel;
+  background: white;
+  border: solid;
+  border-color: $blue-michel;
+  padding: 10px 20px;
+  transition: all 0.5s ease-out;
+    &:hover{
+      color: $blue-michel;
+      font-weight: bold;
+      text-decoration: none;
+    }
+}
+
+
+.btn-white-sm {
+  text-decoration: none;
+  color: $blue-michel;
+  background: white;
+  border: solid;
+  font-size: 14px;
+  border-color: $blue-michel;
+  padding: 7px 14px;
+  transition: all 0.5s ease-out;
+    &:hover{
+      color: $blue-michel;
+      font-weight: bold;
+      text-decoration: none;
+    }
+}
+
+.btn-orange-lg {
+  text-decoration: none;
+  color: $blue-michel;
+  background: $orange-michel;
+  opacity: 0.9;
+  font-weight: bold;
+  padding: 14px 24px;
+  transition: all 0.5s ease-out;
+    &:hover{
+      opacity: 1;
+      color: $blue-michel;
+      font-weight: bold;
+      text-decoration: none;
+    }
+}
+
+
+.btn-orange-sm {
+  text-decoration: none;
+  color: $blue-michel;
+  background: $orange-michel;
+  opacity: 0.9;
+  font-size: 16px;
+  padding: 7px 14px;
+  transition: all 0.5s ease-out;
+    &:hover{
+      opacity: 1;
+      color: $blue-michel;
+      font-weight: bold;
+      text-decoration: none;
+    }
+}
+
