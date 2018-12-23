@@ -1,0 +1,12 @@
+<div class="container-review">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1><%= @cocktail.name %></h1>
+      <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :comment %>
+        <%= f.input :rating, collection: Review::RATINGS, class: "select2" %>
+        <%= f.submit "Add this review", class: "btn-white-sm" %>
+      <% end %>
+    </div>
+  </div>
+</div>
