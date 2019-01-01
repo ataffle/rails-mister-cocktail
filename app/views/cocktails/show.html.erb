@@ -31,7 +31,9 @@
 
   <div class="container-show-review">
     <% if @cocktail.reviews.blank? %>
-      <%= link_to "Add a review", new_cocktail_review_path(@cocktail), class: "btn-white-sm" %>
+      <div class="add-review">
+        <%= render "reviews/form", cocktail: @cocktail, review: @review %>
+      </div>
       <p></p>
     <% else %>
       <ul>
@@ -48,7 +50,9 @@
           </li>
         <% end %>
       </ul>
-      <%= link_to "Add another review", new_cocktail_review_path(@cocktail), class: "btn-white-sm" %>
+      <div class="add-review">
+        <%= render "reviews/form", cocktail: @cocktail, review: @review %>
+      </div>
       <p></p>
     <% end %>
     <%= link_to "Back to list", cocktails_path %>
