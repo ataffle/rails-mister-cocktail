@@ -10,27 +10,31 @@
 <div class="container">
   <div class="row" id="cocktail-list">
     <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-4">
-         <% if cocktail.photo.present? %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>');">
-            <div class="card-category">Popular</div>
-            <div class="card-description">
-              <h2><%= cocktail.name %></h2>
-              <p><%= link_to "More details", cocktail_path(cocktail) %></p>
-            </div>
-          </div>
-        <% else %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path("ash-edmonds-491883-unsplash.jpg", height: 200, width: 200, crop: :fill) %>');">
-            <div class="card-category">Popular</div>
-            <div class="card-description">
-              <h2><%= cocktail.name %></h2>
-              <p><%= link_to "More details", cocktail_path(cocktail) %></p>
-            </div>
-          </div>
-        <% end %>
 
+        <div class="col-xs-12 col-sm-4">
+           <% if cocktail.photo.present? %>
+            <%= link_to cocktail_path(cocktail), class: "card" do  %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>');">
+                <div class="card-category">Popular</div>
+                <div class="card-description">
+                  <h2><%= cocktail.name %></h2>
+                  <p><%= link_to "More details", cocktail_path(cocktail) %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to cocktail_path(cocktail), class: "card" do %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path("ash-edmonds-491883-unsplash.jpg", height: 200, width: 200, crop: :fill) %>');">
+                <div class="card-category">Popular</div>
+                <div class="card-description">
+                  <h2><%= cocktail.name %></h2>
+                  <p><%= link_to "More details", cocktail_path(cocktail) %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
 
-      </div>
     <% end %>
   </div>
 </div>
