@@ -42,12 +42,13 @@
   align-items: center;
   content-justify: center;
     li {
+      margin-top: 16px;
       list-style: none;
       color: $gray;
       font-size: 16px;
       font-weight: lighter;
       border-bottom: solid 1px $light-gray;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
     li:last-child{
       border-bottom: none;
@@ -65,6 +66,9 @@
     }
     .add-review {
       margin-top: 24px;
+      margin-bottom: 16px;
+    }
+    .glyphicon {
       margin-bottom: 16px;
     }
 }

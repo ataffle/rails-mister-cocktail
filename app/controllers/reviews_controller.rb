@@ -8,7 +8,14 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.cocktail = Cocktail.find(params[:cocktail_id])
+    @all_ratings = []
+    @cocktail.average_rating = 0
+    @cocktail.reviews.each do |review|
+      @all_ratings << review.rating
+    end
     if @review.save
+      @cocktail.average_rating = @all_ratings.sum.to_f / @all_ratings.count.to_f
+      @cocktail.save
       redirect_to cocktail_path(@review.cocktail)
     else
       render :new
