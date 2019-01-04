@@ -36,6 +36,17 @@
       </div>
       <p></p>
     <% else %>
+      <p>Average rating </p>
+      <ul>
+        <li>
+          <% @cocktail.average_rating.to_i.times do  %>
+           <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% @cocktail.blank_stars.to_i.times do %>
+           <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </li>
+      </ul>
       <ul>
         <% @cocktail.reviews.each do |review| %>
           <li>
