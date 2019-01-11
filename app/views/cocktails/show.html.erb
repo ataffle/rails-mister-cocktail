@@ -40,10 +40,10 @@
       <ul>
         <li>
           <% @cocktail.average_rating.to_i.times do  %>
-           <span class="glyphicon glyphicon-star"></span>
+           <i class="fas fa-star js-star"></i>
           <% end %>
-          <% @cocktail.blank_stars.to_i.times do %>
-           <span class="glyphicon glyphicon-star-empty"></span>
+          <% @cocktail.blank_stars.times do %>
+           <i class="far fa-star js-star"></i>
           <% end %>
         </li>
       </ul>
@@ -51,13 +51,7 @@
         <% @cocktail.reviews.each do |review| %>
           <li>
             <p style="font-size: 12px;"><%=  review.created_at.strftime('%b %d, %Y') %></p>
-            <p>" <%= review.comment %> "</p>
-            <% review.rating.times do  %>
-             <span class="glyphicon glyphicon-star"></span>
-            <% end %>
-            <% review.blank_stars.times do %>
-             <span class="glyphicon glyphicon-star-empty"></span>
-            <% end %>
+            <%= render "reviews/show", review: review %>
           </li>
         <% end %>
       </ul>

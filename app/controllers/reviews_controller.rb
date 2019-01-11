@@ -16,9 +16,15 @@ class ReviewsController < ApplicationController
     if @review.save
       @cocktail.average_rating = @all_ratings.sum.to_f / @all_ratings.count.to_f
       @cocktail.save
-      redirect_to cocktail_path(@review.cocktail)
+      respond_to do |format|
+        format.html { redirect_to cocktail_path(@cocktail) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render "cocktails/show" }
+        format.js
+      end
     end
   end
 

@@ -6,7 +6,7 @@ class Cocktail < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   def blank_stars
-    5 - average_rating
+    5 - average_rating.to_i
   end
 
 end
