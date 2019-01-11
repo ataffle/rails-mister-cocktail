@@ -4,7 +4,8 @@
   <%= f.submit "Add this review", class: "btn-white-sm" %>
 <% end %>
 
-
+<%
+=begin %>
 <%= simple_form_for([cocktail, review], remote: true) do |f| %>
   <% if @cocktail.errors.any? %>
     <div class="errors-container">
@@ -28,3 +29,6 @@
   <br>
   <%= f.submit "Add this review", class: "btn-white-sm" %>
 <% end %>
+
+<%
+=end %>
