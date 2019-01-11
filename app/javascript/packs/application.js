@@ -17,3 +17,6 @@ initSelect2();
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
+
+import { rating } from '../components/cocktail_rating';
+rating();

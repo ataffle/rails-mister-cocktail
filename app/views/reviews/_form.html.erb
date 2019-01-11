@@ -3,3 +3,28 @@
   <%= f.input :rating, collection: Review::RATINGS, class: "select2" %>
   <%= f.submit "Add this review", class: "btn-white-sm" %>
 <% end %>
+
+
+<%= simple_form_for([cocktail, review], remote: true) do |f| %>
+  <% if @cocktail.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h5><strong>Rating *</strong></h5>
+  <%= f.input :rating, as: :hidden %>
+  <i class="far fa-star js-star" id="star1" data-value="1"></i>
+  <i class="far fa-star js-star" id="star2" data-value="2"></i>
+  <i class="far fa-star js-star" id="star3" data-value="3"></i>
+  <i class="far fa-star js-star" id="star4" data-value="4"></i>
+  <i class="far fa-star js-star" id="star5" data-value="5"></i>
+  <p></p>
+  <br>
+  <%= f.input :comment %>
+  <br>
+  <%= f.submit "Add this review", class: "btn-white-sm" %>
+<% end %>

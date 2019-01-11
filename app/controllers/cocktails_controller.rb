@@ -7,6 +7,12 @@ class CocktailsController < ApplicationController
 
   def show
     @review = Review.new
+    @all_ratings = []
+    @cocktail.average_rating = 0
+    @cocktail.reviews.each do |review|
+      @all_ratings << review.rating
+    end
+    @cocktail.average_rating = @all_ratings.sum.to_f / @all_ratings.count.to_f
   end
 
   def new
